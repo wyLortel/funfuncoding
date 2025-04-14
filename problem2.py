@@ -45,6 +45,6 @@ else:
     result = "불합격"
 
 print(f"{average:.2f}점")
-print(f"결과{result}")
+print(f"결과: {result}")
 
 

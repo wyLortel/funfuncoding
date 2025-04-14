@@ -13,7 +13,7 @@ user_price = int(input("상품 가격을 입력하세요: "))
 if user_price >= 100000:
     sale = 10
 
-# 5만원이상10만원 미만 5 퍼퍼
+# 5만원이상10만원 미만 5 퍼
 elif user_price >= 50000:
     sale = 5
 
