@@ -41,45 +41,60 @@
         고객등급 : 위험 고객 / 우수고객 / 일반 고객중 하나 출력
 """
 
-# 고객 정보 입력 (모든 정수로 입력받음)
-total_purchase = int(input("총 구매 금액 :"))
-return_count = int(input("총 반품 횟수 :"))
-purchase_count = int(input("총 구매 횟수 :"))
-join_months = int(input("가입 개월 수 :"))
+# 고객 정보 입력받는 함수
+def get_customer_info():
+    total_purchase = int(input("총 구매 금액 :"))
+    return_count = int(input("총 반품 횟수 :"))
+    purchase_count = int(input("총 구매 횟수 :"))
+    join_months = int(input("가입 개월 수 :"))
+    return total_purchase ,return_count , purchase_count , join_months
 
-# 예외 처리 
-if purchase_count <= 0:
-    print("오류 : 구매 횟수가 0입니다. 반품률을 계산 할수 없습니다")
-elif return_count > purchase_count :
-    print("오류 : 반품 횟수가 구매 횟수보다 많을수 없습니다 ")
-else:
-    #반품률 계산
-    return_rate = (return_count / purchase_count) * 100
-    
-    grade = ""
+# 예외를 검사하는 함수
+def validate_inputs(return_count , purchase_count):
+    """
+    입력값 검증 함수
+    return : (결과 통과 여부: bool , 메세지 str)
+    """
+    if purchase_count <= 0:
+        return False , "오류 : 구매 횟수가 0입니다. 반품률을 계산 할수 없습니다"
+    elif return_count > purchase_count :
+        return False , "오류 : 반품 횟수가 구매 횟수보다 많을수 없습니다 "
+    return True, "예외 통과"
 
-    #고객 분류 
-    
-    #위험 고객 
+#반품을 계산하는 함수 
+def calculate_return_rate(return_count , purchase_count):
+    return (return_count / purchase_count) * 100
+
+def classify_customer(total_purchase , return_count ,purchase_count,join_months , return_rate ):
     if (
         return_rate >= 50 or
         (join_months <= 3 and total_purchase <= 10_000) or
         return_count >= 10
     ):
-        grade = "위험 고객"
-    
-    #우수고객
-    elif (
+        return "위험 고객"
+    elif(
         total_purchase >= 2_000_000 and
         return_rate <= 10 and
         purchase_count >= 30 and
         join_months >= 12
     ):
-        grade = "우수 고객"
-    
+        return "우수 고객"
     else:
-        grade = "일반 고객"
-    
-    #결과 출력 
-    print(f"반품률 : {return_rate:.1f}%")
-    print(f"고객 등급: {grade}")
+        return "일반 고객"
+
+#입력
+total_purchase ,return_count , purchase_count , join_months =get_customer_info()
+
+#예외 처리 
+result , msg = validate_inputs(return_count , purchase_count)
+if not result:
+    print(msg)
+    exit()
+
+#고객 등급 판명
+return_rate = calculate_return_rate(return_count , purchase_count)
+grade = classify_customer(total_purchase , return_count ,purchase_count,join_months , return_rate)
+
+#출력
+print(f"반품률:{return_rate:.1f}%")
+print(f"고객등급:{grade}")
