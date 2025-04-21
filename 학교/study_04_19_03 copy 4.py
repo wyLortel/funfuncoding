@@ -5,11 +5,12 @@ current_word = ''
 count = 0
 
 for char in text:
-    current_word += char  
-    
-    if current_word == word:
-        count = count + 1
-    current_word = ''  
+    if ('a' <= char <= 'z') or ('A' <= char <= 'Z') or ('0' <= char <= '9'):
+        current_word += char
+    else:
+        if current_word == word:
+            count = count + 1
+        current_word = ''  
 
 if current_word == word:
     count = count + 1

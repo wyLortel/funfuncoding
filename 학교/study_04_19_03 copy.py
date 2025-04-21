@@ -13,11 +13,11 @@ list_1 = ["banana", " apple", "orange", "banana", "apple"]
 list_2 = []
 
 for i in list_1:
-    word = i.strip()  # 공백 제거
+    word = i.strip() 
     if word not in list_2:
         list_2.append(word)
 
-list_2.sort()  # 리스트 자체를 정렬
+list_2.sort()  
 print(list_2)
 
 
