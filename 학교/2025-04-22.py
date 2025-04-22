@@ -24,4 +24,4 @@ while attempt < 5:
             print("계정이 잠금되엇습니다")
         else:
             #오류 메세지와 함께 남은 횟수 안내
-            print(f"ID 또는 PW가 잘못되엇습니다 (남은시도: {remaining})")
+            print(f"ID 또는 PW가 잘못되엇습니다 (남은시도: {remaining})" )
