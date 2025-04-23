@@ -36,3 +36,6 @@ for i in range(1, num_lines+1):
 
 for i in range(num_lines-1 , 0 , -1):
     print(" " * (num_lines - i) + "*" * (i * 2 - 1))
+    
+    
+
