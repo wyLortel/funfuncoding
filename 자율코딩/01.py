@@ -19,5 +19,7 @@ elif user_age <= 18:
     result = "청소년"
 else:
     result = "성인"
+    
 
+#출력력
 print(f"{result} 이용권을 사용할수 있습니다")
