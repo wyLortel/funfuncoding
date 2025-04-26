@@ -64,4 +64,3 @@ print("할인 적용: -{membership_discount}원" if membership_discount < 0 else
 if user_membership_check == "yes" and (user_drink == "coffee" or user_drink == "latte"):
     print("무료샷이 적용됩니다")
 
-
