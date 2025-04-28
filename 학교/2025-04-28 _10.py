@@ -13,6 +13,6 @@ for num_row in range(row , 0 , -1):
     #col 반복
     for _ in range(num_row):
         # * 출력
-        print("*" , end="")
+        print("*", end="")
     
     print()
