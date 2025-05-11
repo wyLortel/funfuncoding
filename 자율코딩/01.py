@@ -1,25 +1,10 @@
-"""
-사용자의 나이를 정수로 입력 받음
-나이에 따라서 도서관 이용권 판별
-    if age <= 12 어린이
-    elif age <= 18 청소년
-    else 성인
-"""
+# 10개의 정수 입력받기
+num = []
+n = set()
+for q in range(10):
+    num.append(int(input("q")))
+    n.add(num[q] % 42)
 
-# 사용자의 나이를 정수로 입력 받음
-user_age = int(input("사용자의 나이를 입력해주세요: "))
+print(len(n))
 
-
-
-result = ""
-# 나이에 따라서 도서관 이용권 판별
-if user_age <= 12:
-    result = "어린이"
-elif user_age <= 18:
-    result = "청소년"
-else:
-    result = "성인"
-    
-
-#출력력
-print(f"{result} 이용권을 사용할수 있습니다")
+# 42로 나누었을때 서로 다른나머지 몇개 출력
