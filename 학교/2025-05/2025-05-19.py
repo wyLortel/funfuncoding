@@ -13,7 +13,3 @@ b = pos.copy
 
 print(id(pos))
 print(id(b))
-
-
-print(pos)
-print(b)

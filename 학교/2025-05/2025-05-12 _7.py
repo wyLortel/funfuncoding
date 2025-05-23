@@ -24,3 +24,8 @@ foo.remove(8)
 print(foo)
 
 foo.remove(10)
+
+
+num = [10,20,30,40]
+
+bar.remove(50) #에러
