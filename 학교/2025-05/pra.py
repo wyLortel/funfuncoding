@@ -1,52 +1,63 @@
 import random
 
-random_num = int(input("난수를입력하세요"))
-start_num = int(input("시작 범위를 입력하세요"))
-end_num = int(input("끝 범위를 입력하세요"))
+# 입력
+N = int(input("난수 개수를 입력하세요: "))
+A = int(input("시작 범위를 입력하세요: "))
+B = int(input("끝 범위를 입력하세요: "))
 
-rand_list = [random.randint(start_num,end_num) for _ in range(random_num)]
+# 난수 생성
+nums = [random.randint(A, B) for _ in range(N)]
 
-print(rand_list)
+# 고유 숫자 리스트 만들기 (중복 제거, 직접 구현)
+unique_numbers = []
+for n in nums:
+    if n not in unique_numbers:
+        unique_numbers.append(n)
 
-uniqe_num = []
-hidou_list = []
+# 각 숫자의 빈도 수 세기
+frequency_list = []
+for uniq in unique_numbers:
+    count = 0
+    for n in nums:
+        if n == uniq:
+            count += 1
+    frequency_list.append(count)
 
-for num in rand_list:
-    flag = False
-    for i in range(len(uniqe_num)):
-        if uniqe_num[i] == num:
-            hidou_list[i] += 1
-            flag = True
-            break
-    if not flag:
-        uniqe_num.append(num)
-        hidou_list.append(1)
+# 출력
+print()
+print(nums)
+print("고유 숫자 리스트:", unique_numbers)
+print("빈도 수 리스트:", frequency_list)
+print()
 
-print(uniqe_num)
-print(hidou_list)
+# Top 3 추출 (빈도수가 높은 순서로 3개)
+used_counts = []
+top3 = []
 
+while len(top3) < 3:
+    max_count = -1
+    candidates = []
 
-print("\n가장 많이 등장한 숫자 Top 3 (동점 포함):")
-pairs = []
-for i in range(len(uniqe_num)):
-    pairs.append([uniqe_num[i], hidou_list[i]])
+    # max_count 찾기
+    for count in frequency_list:
+        if count in used_counts:
+            continue
+        if count > max_count:
+            max_count = count
 
-for i in range(len(pairs)):
-    for j in range(i + 1, len(pairs)):
-        if pairs[i][1] < pairs[j][1]:
-            pairs[i], pairs[j] = pairs[j], pairs[i]
-
-top_count = 0
-
-#빈도수 기억 리스트
-used_freq = []
-for i in range(len(pairs)):
-    if pairs[i][1] in used_freq:
-        continue
-    used_freq.append(pairs[i][1])
-    for p in pairs:
-        if p[1] == pairs[i][1]:
-            print(f"{p[0]} → {p[1]}회")
-    top_count += 1
-    if top_count == 3:
+    if max_count == -1:
         break
+
+    # 해당 count에 해당하는 숫자들 모두 찾기
+    for i in range(len(frequency_list)):
+        if frequency_list[i] == max_count:
+            top3.append((unique_numbers[i], max_count))
+            if len(top3) == 3:
+                break
+
+    used_counts.append(max_count)
+
+# Top 3 출력
+print("가장 많이 등장한 숫자 Top 3 (동점 포함):")
+for num, cnt in top3:
+    print(f"{num} → {cnt}회")
