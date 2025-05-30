@@ -6,8 +6,8 @@ if b < 45:
     b += 60
     if a < 0:
         a = 23
-else:
-    b -= 45
+        
+b -= 45
 
     
 print(a,b)
