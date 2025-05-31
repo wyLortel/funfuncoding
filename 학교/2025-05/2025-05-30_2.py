@@ -25,7 +25,7 @@
 def calculate (a,b):
     sum_val = a + b
     avg_val = sum_val / 2
-    return sum_val , avg_val , 10
+    return sum_val , avg_val 
 
 result = calculate(10 , 20)
 print(f"튜플 반환 {result}")
