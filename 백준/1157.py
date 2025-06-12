@@ -7,7 +7,6 @@ for i in text:
     word[i] = word.get(i,0) + 1
     
 max = 0
-
 for key, value in word.items():
     if max <= value:
         max = value
