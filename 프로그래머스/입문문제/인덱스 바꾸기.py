@@ -14,7 +14,8 @@ def solution(my_string, num1, num2):
             continue
         
         answer+=my_string[i]
-        return answer
+    
+    return answer
 
 print(solution("hello",1,2))
     
