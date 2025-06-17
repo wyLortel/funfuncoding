@@ -127,9 +127,8 @@ def add_numbers(*args, **kwargs):
 
     
 add_numbers(1, 2, 2, 3, 4, unique=True)
-# 출력: 합계는 10입니다.
 
 add_numbers(1, -2, 2, -3, abs=True, only_even=True)
-# 출력: 합계는 4입니다. (|-2|=2, |2|=2 → 2+2)
+
 
 add_numbers(1, 2, 3, round=True)    
