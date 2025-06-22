@@ -31,7 +31,7 @@ def pop_list(list):
         print("리스트 번호가 범위를 벗어낫습니다")
         return
     list.pop(pop_list-1)
-
+    print(f"리스트{pop_list}가 삭제되엇습니다")
 
 
 
@@ -60,4 +60,11 @@ while True:
     
     elif user_input == 3:
         pop_list(new_ran_list)
+    
+    elif user_input == 4:
+        print("프로그램을 종료합니다")
+        break
 
+    else:
+        print("잘못된 입력입니다")
+    
