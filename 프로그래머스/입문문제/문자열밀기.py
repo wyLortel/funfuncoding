@@ -1,5 +1,4 @@
 def solution(A, B):
-    answer = 0
     count = 0
     new_s = A
     
