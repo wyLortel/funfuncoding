@@ -1,4 +1,4 @@
-string = input("입력")
+string = input("")
 
 croatia = ["c=" , "c-" ,  "dz=" , "d-" , "lj" , "nj" , "s=" , "z=" ]
 
