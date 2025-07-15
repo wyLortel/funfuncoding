@@ -1,22 +1,21 @@
-num1 = int(input())
-num2 = int(input())
+M = int(input())
+N = int(input())
 
-lis = []
+primes = []
 
-for i in range(num1,num2+1):
-    for k in range(2,i):
+for i in range(M, N + 1):
+    if i < 2:
+        continue
+    is_prime = True
+    for k in range(2, int(i ** 0.5) + 1):
         if i % k == 0:
+            is_prime = False
             break
-    else:
-        lis.append(i)
+    if is_prime:
+        primes.append(i)
 
-
-if lis:
-    print(sum(lis))
-
-    for j in lis:
-        if j >= num1:
-            print(j)
-            break
+if primes:
+    print(sum(primes))
+    print(min(primes))
 else:
     print(-1)
